@@ -1,0 +1,6 @@
+django=3.2.12
+djangorestframework
+markdown
+django-filter
+mysqlclient
+pillow
