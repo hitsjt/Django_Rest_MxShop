@@ -36,6 +36,7 @@ AUTH_USER_MODEL = 'users.UserProfile'
 # Application definition
 
 INSTALLED_APPS = [
+    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -44,7 +45,9 @@ INSTALLED_APPS = [
     'apps.users.apps.UsersConfig',
     'apps.goods.apps.GoodsConfig',
     'apps.trade.apps.TradeConfig',
-    'apps.user_operation.apps.UserOperationConfig'
+    'apps.user_operation.apps.UserOperationConfig',
+    'crispy_forms',
+    'xadmin',
 ]
 
 MIDDLEWARE = [
@@ -114,9 +117,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
