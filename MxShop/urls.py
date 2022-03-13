@@ -18,6 +18,12 @@ from django.urls import path
 
 import xadmin
 
+from MxShop.settings import MEDIA_ROOT
+from django.views.static import serve
+from django.conf.urls import url
+
 urlpatterns = [
         path('xadmin/', xadmin.site.urls),
+        #path('media/', serve, {"document_root": MEDIA_ROOT}),
+        url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
 ]
