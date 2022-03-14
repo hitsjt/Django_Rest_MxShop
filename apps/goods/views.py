@@ -30,6 +30,6 @@ class GoodsListViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
     ordering_fields = ('sold_num','add_time')
 
 
-class GoodsCategoryViweSet(mixins.ListModelMixin,viewsets.GenericViewSet):
+class GoodsCategoryViweSet(mixins.ListModelMixin,mixins.RetrieveModelMixin,viewsets.GenericViewSet):
     queryset =GoodsCategory.objects.filter(category_type = 1)
     serializer_class = GoodsCategorySerializer
