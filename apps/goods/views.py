@@ -8,13 +8,10 @@ from .models import Goods
 from .serializers import GoodsSerializer
 
 # Create your views here.
-class GoodsListView(mixins.ListModelMixin,generics.GenericAPIView):
+class GoodsListView(generics.ListAPIView):
     """
     List all snippets, or create a new snippet.
     """
     queryset = Goods.objects.all()[:10]
     serializer_class = GoodsSerializer
-
-    def get(self,request,*args,**kwargs):
-        return self.list(request,*args,**kwargs)
 
