@@ -4,8 +4,8 @@ from django.http import Http404
 from rest_framework.response import Response
 from rest_framework import status,generics,mixins,viewsets,filters
 
-from .models import Goods
-from .serializers import GoodsSerializer
+from .models import Goods,GoodsCategory
+from .serializers import GoodsSerializer,GoodsCategorySerializer
 from .filters import GoodsFilter
 from rest_framework.pagination import PageNumberPagination
 from django_filters.rest_framework import DjangoFilterBackend
@@ -29,3 +29,7 @@ class GoodsListViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
     search_fields = ('name','goods_brief','goods_desc')
     ordering_fields = ('sold_num','add_time')
 
+
+class GoodsCategoryViweSet(mixins.ListModelMixin,viewsets.GenericViewSet):
+    queryset =GoodsCategory.objects.all()
+    serializer_class = GoodsCategorySerializer

@@ -13,3 +13,8 @@ class GoodsSerializer(ModelSerializer):
         model = Goods
         #fields = ('name','click_num','market_price','add_time')
         fields = '__all__'
+
+class GoodsCategorySerializer(ModelSerializer):
+    class Meta:
+        model = GoodsCategory
+        fields = '__all__'
