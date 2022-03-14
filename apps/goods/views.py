@@ -31,5 +31,5 @@ class GoodsListViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
 
 
 class GoodsCategoryViweSet(mixins.ListModelMixin,viewsets.GenericViewSet):
-    queryset =GoodsCategory.objects.all()
+    queryset =GoodsCategory.objects.filter(category_type = 1)
     serializer_class = GoodsCategorySerializer
