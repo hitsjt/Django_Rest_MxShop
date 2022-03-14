@@ -23,6 +23,7 @@ from django.views.static import serve
 from django.conf.urls import url,include
 from rest_framework.documentation import include_docs_urls
 
+
 from goods.views import GoodsListView
 
 urlpatterns = [
