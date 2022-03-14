@@ -21,20 +21,18 @@ import xadmin
 from MxShop.settings import MEDIA_ROOT
 from django.views.static import serve
 from django.conf.urls import url,include
+from rest_framework.routers import DefaultRouter
 from rest_framework.documentation import include_docs_urls
-
-
 from goods.views import GoodsListViewSet
+router = DefaultRouter()
 
-goods_list = GoodsListViewSet.as_view({
-        'get':'list',
-})
+router.register('goods',GoodsListViewSet)
+
 
 urlpatterns = [
         path('xadmin/', xadmin.site.urls),
-        #path('media/', serve, {"document_root": MEDIA_ROOT}),
         url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
-        path('goods/',goods_list,name='goods-list'),
+        path('',include(router.urls)),
         path('docs/',include_docs_urls(title='慕学生鲜')),
         path('api-auth/', include('rest_framework.urls'))
 ]
