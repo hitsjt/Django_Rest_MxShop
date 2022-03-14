@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from django.http import Http404
 from rest_framework.response import Response
-from rest_framework import status,generics,mixins
+from rest_framework import status,generics,mixins,viewsets
 
 from .models import Goods
 from .serializers import GoodsSerializer
@@ -15,7 +15,7 @@ class GoodsPagination(PageNumberPagination):
     max_page_size = 100
 
 # Create your views here.
-class GoodsListView(generics.ListAPIView):
+class GoodsListViewSet(mixins.ListModelMixin,viewsets.GenericViewSet):
     """
     List all snippets, or create a new snippet.
     """

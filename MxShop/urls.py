@@ -24,13 +24,17 @@ from django.conf.urls import url,include
 from rest_framework.documentation import include_docs_urls
 
 
-from goods.views import GoodsListView
+from goods.views import GoodsListViewSet
+
+goods_list = GoodsListViewSet.as_view({
+        'get':'list',
+})
 
 urlpatterns = [
         path('xadmin/', xadmin.site.urls),
         #path('media/', serve, {"document_root": MEDIA_ROOT}),
         url(r'^media/(?P<path>.*)$', serve, {"document_root": MEDIA_ROOT}),
-        path('goods/',GoodsListView.as_view(),name='goods-list'),
+        path('goods/',goods_list,name='goods-list'),
         path('docs/',include_docs_urls(title='慕学生鲜')),
         path('api-auth/', include('rest_framework.urls'))
 ]
