@@ -29,7 +29,10 @@ class GoodsCategory(models.Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.name
+        if self.name == None:
+            return ""
+        else:
+            return self.name
 
 
 class GoodsCategoryBrand(models.Model):
@@ -48,7 +51,10 @@ class GoodsCategoryBrand(models.Model):
         db_table = "goods_goodsbrand"
 
     def __str__(self):
-        return self.name
+        if self.name == None:
+            return ""
+        else:
+            return self.name
 
 
 class Goods(models.Model):
@@ -78,7 +84,10 @@ class Goods(models.Model):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.name
+        if self.name == None:
+            return ""
+        else:
+            return self.name
 
 
 class IndexAd(models.Model):
